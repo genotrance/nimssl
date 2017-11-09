@@ -1,3 +1,5 @@
 nimssl
 nimcache
 *.exe
+*.swp
+*test
