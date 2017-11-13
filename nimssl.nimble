@@ -17,10 +17,16 @@ var cmd = ""
 if detectOs(Windows):
     cmd = "cmd /c "
 
-task checkout, "Checkout OpenSSL":
+task nimgen, "Run nimgen":
+    exec cmd & "nimgen nimssl.cfg"
+
+task reset, "Reset git":
+    withDir("nimssl"):
+        exec "git reset --hard HEAD"
+
+task setup, "Checkout and build OpenSSL":
     if dirExists("nimssl"):
-        withDir("nimssl"):
-            exec "git reset --hard HEAD"
+        resetTask()
     else:
         exec "git init nimssl"
         withDir("nimssl"):
@@ -30,13 +36,12 @@ task checkout, "Checkout OpenSSL":
             exec cmd & "echo crypto/* >> .git/info/sparse-checkout"
             exec "git pull --depth=1 origin master"
 
-task nimgen, "Run nimgen":
-    exec cmd & "nimgen nimssl.cfg"
+    nimgenTask()
+
+    resetTask()
 
 before install:
-    checkoutTask()
-
-    nimgenTask()
+    setupTask()
 
 task test, "Run tests":
     withDir("tests"):
