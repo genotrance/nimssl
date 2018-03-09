@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.1"
+version       = "0.1.2"
 author        = "genotrance"
 description   = "OpenSSL wrapper for Nim"
 license       = "MIT"
@@ -9,7 +9,7 @@ skipDirs = @["tests"]
 
 # Dependencies
 
-requires "nimgen >= 0.1.1"
+requires "nimgen >= 0.1.4"
 
 import distros
 
