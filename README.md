@@ -7,11 +7,7 @@ __Installation__
 Nimssl can be installed via [Nimble](https://github.com/nim-lang/nimble):
 
 ```
-> nimble install nimgen
-
-> git clone https://github.com/genotrance/nimssl
-> cd nimssl
-> nimble install -y
+> nimble install nimssl
 ```
 
 This will download, wrap and install nimssl in the standard Nimble package location, typically ~/.nimble. Once installed, it can be imported into any Nim program.

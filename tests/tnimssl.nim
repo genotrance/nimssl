@@ -9,7 +9,7 @@ template toArray(hash: untyped, dlen: int): untyped =
 proc toHex[T](hash: ptr T): string =
     result = ""
     for i in hash[]:
-        result &= i.toHex()
+        result &= ($i).toHex()
 
     return result
 
