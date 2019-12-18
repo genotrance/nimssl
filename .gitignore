@@ -1,5 +1,5 @@
-nimssl
-nimcache
-*.exe
-*.swp
-test*
+tests/testRSA
+tests/testSHA
+nimssl/crypto
+nimssl/ssl
+generate
