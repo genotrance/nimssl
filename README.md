@@ -14,16 +14,18 @@ This will download, wrap and install nimssl in the standard Nimble package locat
 
 __Usage__
 
-Module documentation can be found [here](http://nimgen.genotrance.com/nimssl).
+Module documentation can be found [here](http://nimgen.genotrance.com/nimssl). To get started, here is an example:
 
 ```nim
 import nimssl/crypto
 
 var test = "Hello, world!"
-var hash = SHA256(addr test[0], test.len(), nil)
+var hash = SHA256(addr test[0], cast[uint](test.len()), nil)
 
-echo cast[ptr array[dlen, char]](hash).toHex()
+echo hash.toArray(32).toHex()
 ```
+
+When compiling with `nimssl/crypto`, include the `-d:cryptoStd` command line flag, and `-d:sslStd` when compiling with `nimssl/ssl`. The first compile will be slow, but those after should be much faster. If you are experiencing consistently slow compile times, try including the `-f:off` flag.
 
 Nimssl currently wraps almost everything from OpenSSL's libcrypto and libssl, but few things are tested (refer to `tests`). Contributions to the tests pool are appreciated!
 

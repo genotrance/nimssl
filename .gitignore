@@ -1,4 +1,4 @@
 tests/testRSA
 tests/testSHA
-src/nimssl/crypto
-src/nimssl/ssl
+nimssl/crypto
+nimssl/ssl
