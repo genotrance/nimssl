@@ -1,7 +1,7 @@
 os:
   # - windows
   - linux
-  - osx
+  # - osx
 
 language: c
 

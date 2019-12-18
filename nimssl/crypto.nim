@@ -307,6 +307,7 @@ type
   UI = object
   lhash_st_CONF_VALUE = object
   lhash_st_ERR_STRING_DATA = object
+  STACK = object
   # Objects here
 
 # Starts
