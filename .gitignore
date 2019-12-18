@@ -1,5 +1,4 @@
-nimssl
-nimcache
-*.exe
-*.swp
-test*
+tests/testRSA
+tests/testSHA
+src/nimssl/crypto
+src/nimssl/ssl
