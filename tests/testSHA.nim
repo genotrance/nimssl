@@ -1,17 +1,5 @@
-import nimssl/sha
+import nimssl/crypto
 import strutils
-
-# Cast digest into array
-template toArray(hash: untyped, dlen: int): untyped =
-    cast[ptr array[dlen, char]](hash)
-
-# Convert array into hex
-proc toHex[T](hash: ptr T): string =
-    result = ""
-    for i in hash[]:
-        result &= ($i).toHex()
-
-    return result
 
 # Template to generate all hash calls in Nim
 template genFunc(name, context, length, init, update, final: untyped): untyped =
