@@ -305,6 +305,8 @@ type
   ui_string_st = object
   UI_STRING = object
   UI = object
+  lhash_st_CONF_VALUE = object
+  lhash_st_ERR_STRING_DATA = object
   # Objects here
 
 # Starts
