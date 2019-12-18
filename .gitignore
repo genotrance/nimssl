@@ -2,3 +2,4 @@ tests/testRSA
 tests/testSHA
 nimssl/crypto
 nimssl/ssl
+generate
