@@ -425,3 +425,7 @@ when fileExists(basePath/"storeerr.h"):
   cImport(basePath/"storeerr.h", dynlib="cryptoPath")
 when fileExists(basePath/"store.h"):
   cImport(basePath/"store.h", dynlib="cryptoPath")
+when fileExists(basePath/"md4.h"):
+  cImport(basePath/"md4.h", dynlib="cryptoPath")
+when fileExists(basePath/"md5.h"):
+  cImport(basePath/"md5.h", dynlib="cryptoPath")
