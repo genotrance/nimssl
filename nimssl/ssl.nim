@@ -7,7 +7,7 @@ static:
   cSkipSymbol @["filler"] # Skips
 
 getHeader("openssl/ssl.h")
-const basePath = sslPath.parentDir
+const basePath = sslLPath.parentDir
 
 cPlugin:
   import strutils
@@ -118,32 +118,32 @@ type
 
 # Starts
 when fileExists(basePath/"opensslv.h"):
-  cImport(basePath/"opensslv.h", dynlib="sslPath")
+  cImport(basePath/"opensslv.h", dynlib="sslLPath")
 when fileExists(basePath/"opensslconf.h"):
-  cImport(basePath/"opensslconf.h", dynlib="sslPath")
+  cImport(basePath/"opensslconf.h", dynlib="sslLPath")
 when fileExists(basePath/"e_os2.h"):
-  cImport(basePath/"e_os2.h", dynlib="sslPath")
+  cImport(basePath/"e_os2.h", dynlib="sslLPath")
 when fileExists(basePath/"safestack.h"):
-  cImport(basePath/"safestack.h", dynlib="sslPath")
+  cImport(basePath/"safestack.h", dynlib="sslLPath")
 when fileExists(basePath/"ossl_typ.h"):
-  cImport(basePath/"ossl_typ.h", dynlib="sslPath")
+  cImport(basePath/"ossl_typ.h", dynlib="sslLPath")
 when fileExists(basePath/"symhacks.h"):
-  cImport(basePath/"symhacks.h", dynlib="sslPath")
+  cImport(basePath/"symhacks.h", dynlib="sslLPath")
 when fileExists(basePath/"ebcdic.h"):
-  cImport(basePath/"ebcdic.h", dynlib="sslPath")
+  cImport(basePath/"ebcdic.h", dynlib="sslLPath")
 when fileExists(basePath/"blowfish.h"):
-  cImport(basePath/"blowfish.h", dynlib="sslPath")
+  cImport(basePath/"blowfish.h", dynlib="sslLPath")
 when fileExists(basePath/"obj_mac.h"):
-  cImport(basePath/"obj_mac.h", dynlib="sslPath")
+  cImport(basePath/"obj_mac.h", dynlib="sslLPath")
 when fileExists(basePath/"dtls1.h"):
-  cImport(basePath/"dtls1.h", dynlib="sslPath")
+  cImport(basePath/"dtls1.h", dynlib="sslLPath")
 when fileExists(basePath/"sslerr.h"):
-  cImport(basePath/"sslerr.h", dynlib="sslPath")
+  cImport(basePath/"sslerr.h", dynlib="sslLPath")
 when fileExists(basePath/"ssl2.h"):
-  cImport(basePath/"ssl2.h", dynlib="sslPath")
+  cImport(basePath/"ssl2.h", dynlib="sslLPath")
 when fileExists(basePath/"ssl3.h"):
-  cImport(basePath/"ssl3.h", dynlib="sslPath")
+  cImport(basePath/"ssl3.h", dynlib="sslLPath")
 when fileExists(basePath/"tls1.h"):
-  cImport(basePath/"tls1.h", dynlib="sslPath")
+  cImport(basePath/"tls1.h", dynlib="sslLPath")
 when fileExists(basePath/"ssl.h"):
-  cImport(basePath/"ssl.h", dynlib="sslPath")
+  cImport(basePath/"ssl.h", dynlib="sslLPath")

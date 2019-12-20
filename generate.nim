@@ -79,7 +79,7 @@ type
     if i in tmp:
       core.add("""
 when fileExists(basePath/"$1"):
-  cImport(basePath/"$1", dynlib="$2Path")
+  cImport(basePath/"$1", dynlib="$2LPath")
 """ % @[i, commandLineParams()[0].split(".")[0]])
 
   writeFile(fp, core)

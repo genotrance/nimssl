@@ -7,7 +7,7 @@ static:
   cSkipSymbol @["filler","ASN1_TEMPLATE_st","ASN1_TLC_st","EVP_Cipher","X509_algor_st","stack_st_X509_ATTRIBUTE","stack_st_X509","stack_st_X509_CRL","stack_st_POLICYQUALINFO","stack_st_X509_POLICY_NODE"] # Skips
 
 getHeader("openssl/crypto.h")
-const basePath = cryptoPath.parentDir
+const basePath = cryptoLPath.parentDir
 
 cPlugin:
   import strutils
@@ -260,172 +260,186 @@ type
   ossl_store_loader_st = object
   ossl_store_loader_ctx_st = object
   OSSL_STORE_SEARCH = object
+  lhash_st_CONF_VALUE = object
+  lhash_st_ERR_STRING_DATA = object
   # Objects here
 
 # Starts
 when fileExists(basePath/"aes.h"):
-  cImport(basePath/"aes.h", dynlib="cryptoPath")
+  cImport(basePath/"aes.h", dynlib="cryptoLPath")
 when fileExists(basePath/"stack.h"):
-  cImport(basePath/"stack.h", dynlib="cryptoPath")
+  cImport(basePath/"stack.h", dynlib="cryptoLPath")
 when fileExists(basePath/"cryptoerr.h"):
-  cImport(basePath/"cryptoerr.h", dynlib="cryptoPath")
+  cImport(basePath/"cryptoerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"crypto.h"):
-  cImport(basePath/"crypto.h", dynlib="cryptoPath")
+  cImport(basePath/"crypto.h", dynlib="cryptoLPath")
 when fileExists(basePath/"bioerr.h"):
-  cImport(basePath/"bioerr.h", dynlib="cryptoPath")
+  cImport(basePath/"bioerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"bio.h"):
-  cImport(basePath/"bio.h", dynlib="cryptoPath")
+  cImport(basePath/"bio.h", dynlib="cryptoLPath")
 when fileExists(basePath/"asn1err.h"):
-  cImport(basePath/"asn1err.h", dynlib="cryptoPath")
+  cImport(basePath/"asn1err.h", dynlib="cryptoLPath")
 when fileExists(basePath/"bnerr.h"):
-  cImport(basePath/"bnerr.h", dynlib="cryptoPath")
+  cImport(basePath/"bnerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"bn.h"):
-  cImport(basePath/"bn.h", dynlib="cryptoPath")
+  cImport(basePath/"bn.h", dynlib="cryptoLPath")
 when fileExists(basePath/"asn1.h"):
-  cImport(basePath/"asn1.h", dynlib="cryptoPath")
+  cImport(basePath/"asn1.h", dynlib="cryptoLPath")
 when fileExists(basePath/"asn1t.h"):
-  cImport(basePath/"asn1t.h", dynlib="cryptoPath")
+  cImport(basePath/"asn1t.h", dynlib="cryptoLPath")
 when fileExists(basePath/"asyncerr.h"):
-  cImport(basePath/"asyncerr.h", dynlib="cryptoPath")
+  cImport(basePath/"asyncerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"async.h"):
-  cImport(basePath/"async.h", dynlib="cryptoPath")
+  cImport(basePath/"async.h", dynlib="cryptoLPath")
 when fileExists(basePath/"buffererr.h"):
-  cImport(basePath/"buffererr.h", dynlib="cryptoPath")
+  cImport(basePath/"buffererr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"buffer.h"):
-  cImport(basePath/"buffer.h", dynlib="cryptoPath")
+  cImport(basePath/"buffer.h", dynlib="cryptoLPath")
 when fileExists(basePath/"camellia.h"):
-  cImport(basePath/"camellia.h", dynlib="cryptoPath")
+  cImport(basePath/"camellia.h", dynlib="cryptoLPath")
 when fileExists(basePath/"cast.h"):
-  cImport(basePath/"cast.h", dynlib="cryptoPath")
+  cImport(basePath/"cast.h", dynlib="cryptoLPath")
 when fileExists(basePath/"evperr.h"):
-  cImport(basePath/"evperr.h", dynlib="cryptoPath")
+  cImport(basePath/"evperr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"objectserr.h"):
-  cImport(basePath/"objectserr.h", dynlib="cryptoPath")
+  cImport(basePath/"objectserr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"objects.h"):
-  cImport(basePath/"objects.h", dynlib="cryptoPath")
+  cImport(basePath/"objects.h", dynlib="cryptoLPath")
 when fileExists(basePath/"evp.h"):
-  cImport(basePath/"evp.h", dynlib="cryptoPath")
+  cImport(basePath/"evp.h", dynlib="cryptoLPath")
 when fileExists(basePath/"cmac.h"):
-  cImport(basePath/"cmac.h", dynlib="cryptoPath")
+  cImport(basePath/"cmac.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ecerr.h"):
-  cImport(basePath/"ecerr.h", dynlib="cryptoPath")
+  cImport(basePath/"ecerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ec.h"):
-  cImport(basePath/"ec.h", dynlib="cryptoPath")
+  cImport(basePath/"ec.h", dynlib="cryptoLPath")
 when fileExists(basePath/"rsaerr.h"):
-  cImport(basePath/"rsaerr.h", dynlib="cryptoPath")
+  cImport(basePath/"rsaerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"rsa.h"):
-  cImport(basePath/"rsa.h", dynlib="cryptoPath")
+  cImport(basePath/"rsa.h", dynlib="cryptoLPath")
 when fileExists(basePath/"dherr.h"):
-  cImport(basePath/"dherr.h", dynlib="cryptoPath")
+  cImport(basePath/"dherr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"dh.h"):
-  cImport(basePath/"dh.h", dynlib="cryptoPath")
+  cImport(basePath/"dh.h", dynlib="cryptoLPath")
 when fileExists(basePath/"dsaerr.h"):
-  cImport(basePath/"dsaerr.h", dynlib="cryptoPath")
+  cImport(basePath/"dsaerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"dsa.h"):
-  cImport(basePath/"dsa.h", dynlib="cryptoPath")
+  cImport(basePath/"dsa.h", dynlib="cryptoLPath")
 when fileExists(basePath/"sha.h"):
-  cImport(basePath/"sha.h", dynlib="cryptoPath")
+  cImport(basePath/"sha.h", dynlib="cryptoLPath")
 when fileExists(basePath/"x509err.h"):
-  cImport(basePath/"x509err.h", dynlib="cryptoPath")
+  cImport(basePath/"x509err.h", dynlib="cryptoLPath")
 when fileExists(basePath/"lhash.h"):
-  cImport(basePath/"lhash.h", dynlib="cryptoPath")
+  cImport(basePath/"lhash.h", dynlib="cryptoLPath")
 when fileExists(basePath/"x509_vfy.h"):
-  cImport(basePath/"x509_vfy.h", dynlib="cryptoPath")
+  cImport(basePath/"x509_vfy.h", dynlib="cryptoLPath")
 when fileExists(basePath/"pkcs7err.h"):
-  cImport(basePath/"pkcs7err.h", dynlib="cryptoPath")
+  cImport(basePath/"pkcs7err.h", dynlib="cryptoLPath")
 when fileExists(basePath/"pkcs7.h"):
-  cImport(basePath/"pkcs7.h", dynlib="cryptoPath")
+  cImport(basePath/"pkcs7.h", dynlib="cryptoLPath")
 when fileExists(basePath/"x509.h"):
-  cImport(basePath/"x509.h", dynlib="cryptoPath")
+  cImport(basePath/"x509.h", dynlib="cryptoLPath")
 when fileExists(basePath/"conferr.h"):
-  cImport(basePath/"conferr.h", dynlib="cryptoPath")
+  cImport(basePath/"conferr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"conf.h"):
-  cImport(basePath/"conf.h", dynlib="cryptoPath")
+  cImport(basePath/"conf.h", dynlib="cryptoLPath")
 when fileExists(basePath/"x509v3err.h"):
-  cImport(basePath/"x509v3err.h", dynlib="cryptoPath")
+  cImport(basePath/"x509v3err.h", dynlib="cryptoLPath")
 when fileExists(basePath/"x509v3.h"):
-  cImport(basePath/"x509v3.h", dynlib="cryptoPath")
+  cImport(basePath/"x509v3.h", dynlib="cryptoLPath")
 when fileExists(basePath/"cmserr.h"):
-  cImport(basePath/"cmserr.h", dynlib="cryptoPath")
+  cImport(basePath/"cmserr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"cms.h"):
-  cImport(basePath/"cms.h", dynlib="cryptoPath")
+  cImport(basePath/"cms.h", dynlib="cryptoLPath")
 when fileExists(basePath/"comperr.h"):
-  cImport(basePath/"comperr.h", dynlib="cryptoPath")
+  cImport(basePath/"comperr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"comp.h"):
-  cImport(basePath/"comp.h", dynlib="cryptoPath")
+  cImport(basePath/"comp.h", dynlib="cryptoLPath")
 when fileExists(basePath/"conf_api.h"):
-  cImport(basePath/"conf_api.h", dynlib="cryptoPath")
+  cImport(basePath/"conf_api.h", dynlib="cryptoLPath")
 when fileExists(basePath/"cterr.h"):
-  cImport(basePath/"cterr.h", dynlib="cryptoPath")
+  cImport(basePath/"cterr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ct.h"):
-  cImport(basePath/"ct.h", dynlib="cryptoPath")
+  cImport(basePath/"ct.h", dynlib="cryptoLPath")
 when fileExists(basePath/"des.h"):
-  cImport(basePath/"des.h", dynlib="cryptoPath")
+  cImport(basePath/"des.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ecdh.h"):
-  cImport(basePath/"ecdh.h", dynlib="cryptoPath")
+  cImport(basePath/"ecdh.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ecdsa.h"):
-  cImport(basePath/"ecdsa.h", dynlib="cryptoPath")
+  cImport(basePath/"ecdsa.h", dynlib="cryptoLPath")
 when fileExists(basePath/"randerr.h"):
-  cImport(basePath/"randerr.h", dynlib="cryptoPath")
+  cImport(basePath/"randerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"rand.h"):
-  cImport(basePath/"rand.h", dynlib="cryptoPath")
+  cImport(basePath/"rand.h", dynlib="cryptoLPath")
 when fileExists(basePath/"pemerr.h"):
-  cImport(basePath/"pemerr.h", dynlib="cryptoPath")
+  cImport(basePath/"pemerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"pem.h"):
-  cImport(basePath/"pem.h", dynlib="cryptoPath")
+  cImport(basePath/"pem.h", dynlib="cryptoLPath")
 when fileExists(basePath/"uierr.h"):
-  cImport(basePath/"uierr.h", dynlib="cryptoPath")
+  cImport(basePath/"uierr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ui.h"):
-  cImport(basePath/"ui.h", dynlib="cryptoPath")
+  cImport(basePath/"ui.h", dynlib="cryptoLPath")
 when fileExists(basePath/"err.h"):
-  cImport(basePath/"err.h", dynlib="cryptoPath")
+  cImport(basePath/"err.h", dynlib="cryptoLPath")
 when fileExists(basePath/"engineerr.h"):
-  cImport(basePath/"engineerr.h", dynlib="cryptoPath")
+  cImport(basePath/"engineerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"engine.h"):
-  cImport(basePath/"engine.h", dynlib="cryptoPath")
+  cImport(basePath/"engine.h", dynlib="cryptoLPath")
 when fileExists(basePath/"hmac.h"):
-  cImport(basePath/"hmac.h", dynlib="cryptoPath")
+  cImport(basePath/"hmac.h", dynlib="cryptoLPath")
 when fileExists(basePath/"idea.h"):
-  cImport(basePath/"idea.h", dynlib="cryptoPath")
+  cImport(basePath/"idea.h", dynlib="cryptoLPath")
 when fileExists(basePath/"kdferr.h"):
-  cImport(basePath/"kdferr.h", dynlib="cryptoPath")
+  cImport(basePath/"kdferr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"kdf.h"):
-  cImport(basePath/"kdf.h", dynlib="cryptoPath")
+  cImport(basePath/"kdf.h", dynlib="cryptoLPath")
 when fileExists(basePath/"md2.h"):
-  cImport(basePath/"md2.h", dynlib="cryptoPath")
+  cImport(basePath/"md2.h", dynlib="cryptoLPath")
 when fileExists(basePath/"mdc2.h"):
-  cImport(basePath/"mdc2.h", dynlib="cryptoPath")
+  cImport(basePath/"mdc2.h", dynlib="cryptoLPath")
 when fileExists(basePath/"modes.h"):
-  cImport(basePath/"modes.h", dynlib="cryptoPath")
+  cImport(basePath/"modes.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ocsperr.h"):
-  cImport(basePath/"ocsperr.h", dynlib="cryptoPath")
+  cImport(basePath/"ocsperr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"ocsp.h"):
-  cImport(basePath/"ocsp.h", dynlib="cryptoPath")
+  cImport(basePath/"ocsp.h", dynlib="cryptoLPath")
 when fileExists(basePath/"pem2.h"):
-  cImport(basePath/"pem2.h", dynlib="cryptoPath")
+  cImport(basePath/"pem2.h", dynlib="cryptoLPath")
 when fileExists(basePath/"pkcs12err.h"):
-  cImport(basePath/"pkcs12err.h", dynlib="cryptoPath")
+  cImport(basePath/"pkcs12err.h", dynlib="cryptoLPath")
 when fileExists(basePath/"pkcs12.h"):
-  cImport(basePath/"pkcs12.h", dynlib="cryptoPath")
+  cImport(basePath/"pkcs12.h", dynlib="cryptoLPath")
 when fileExists(basePath/"rand_drbg.h"):
-  cImport(basePath/"rand_drbg.h", dynlib="cryptoPath")
+  cImport(basePath/"rand_drbg.h", dynlib="cryptoLPath")
 when fileExists(basePath/"rc2.h"):
-  cImport(basePath/"rc2.h", dynlib="cryptoPath")
+  cImport(basePath/"rc2.h", dynlib="cryptoLPath")
 when fileExists(basePath/"rc4.h"):
-  cImport(basePath/"rc4.h", dynlib="cryptoPath")
+  cImport(basePath/"rc4.h", dynlib="cryptoLPath")
 when fileExists(basePath/"rc5.h"):
-  cImport(basePath/"rc5.h", dynlib="cryptoPath")
+  cImport(basePath/"rc5.h", dynlib="cryptoLPath")
 when fileExists(basePath/"seed.h"):
-  cImport(basePath/"seed.h", dynlib="cryptoPath")
+  cImport(basePath/"seed.h", dynlib="cryptoLPath")
 when fileExists(basePath/"srp.h"):
-  cImport(basePath/"srp.h", dynlib="cryptoPath")
+  cImport(basePath/"srp.h", dynlib="cryptoLPath")
 when fileExists(basePath/"srtp.h"):
-  cImport(basePath/"srtp.h", dynlib="cryptoPath")
+  cImport(basePath/"srtp.h", dynlib="cryptoLPath")
 when fileExists(basePath/"storeerr.h"):
-  cImport(basePath/"storeerr.h", dynlib="cryptoPath")
+  cImport(basePath/"storeerr.h", dynlib="cryptoLPath")
 when fileExists(basePath/"store.h"):
-  cImport(basePath/"store.h", dynlib="cryptoPath")
+  cImport(basePath/"store.h", dynlib="cryptoLPath")
 when fileExists(basePath/"md4.h"):
-  cImport(basePath/"md4.h", dynlib="cryptoPath")
+  cImport(basePath/"md4.h", dynlib="cryptoLPath")
 when fileExists(basePath/"md5.h"):
-  cImport(basePath/"md5.h", dynlib="cryptoPath")
+  cImport(basePath/"md5.h", dynlib="cryptoLPath")
+
+# Cast digest into array
+template toArray*(hash: untyped, dlen: int): untyped =
+    cast[ptr array[dlen, char]](hash)
+
+# Convert array into hex
+proc toHex*[T](hash: ptr T): string =
+    result = ""
+    for i in hash[]:
+        result &= ($i).toHex()
+
+    return result
