@@ -46,6 +46,7 @@ if "import os" notin readFile(fp):
 
   var core = """
 import os
+import strutils
 
 import nimterop/[build, cimport]
 

@@ -1,4 +1,5 @@
 import os
+import strutils
 
 import nimterop/[build, cimport]
 
@@ -7,7 +8,7 @@ static:
   cSkipSymbol @["filler","ASN1_TEMPLATE_st","ASN1_TLC_st","EVP_Cipher","X509_algor_st","stack_st_X509_ATTRIBUTE","stack_st_X509","stack_st_X509_CRL","stack_st_POLICYQUALINFO","stack_st_X509_POLICY_NODE"] # Skips
 
 getHeader("openssl/crypto.h")
-const basePath = cryptoLPath.parentDir
+const basePath = cryptoPath.parentDir
 
 cPlugin:
   import strutils
@@ -260,8 +261,6 @@ type
   ossl_store_loader_st = object
   ossl_store_loader_ctx_st = object
   OSSL_STORE_SEARCH = object
-  lhash_st_CONF_VALUE = object
-  lhash_st_ERR_STRING_DATA = object
   # Objects here
 
 # Starts
