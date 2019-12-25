@@ -262,6 +262,8 @@ type
   ossl_store_loader_ctx_st = object
   OSSL_STORE_SEARCH = object
   # Objects here
+  lhash_st_ERR_STRING_DATA = object
+  lhash_st_CONF_VALUE = object
 
 # Starts
 when fileExists(basePath/"aes.h"):
